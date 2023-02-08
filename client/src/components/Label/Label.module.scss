@@ -1,0 +1,22 @@
+@import 'styles/colors';
+
+.container {
+    display: flex;
+    flex-direction: column;
+    
+    &.bottom {
+        flex-direction: column-reverse;
+    }
+    &.left {
+        flex-direction: row;
+    }
+    &.right {
+        flex-direction: row-reverse;
+    }
+}
+
+.label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #B6B6B6;
+}

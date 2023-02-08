@@ -1,0 +1,61 @@
+@import 'styles/colors';
+
+.container {
+    width: 100%;
+    max-height: 200px;
+    position: relative;
+}
+
+.initialContainer {
+    background-image: repeating-linear-gradient(0deg, #e7e7e7, #e7e7e7 7px, transparent 7px, transparent 11px, #e7e7e7 11px), repeating-linear-gradient(90deg, #e7e7e7, #e7e7e7 7px, transparent 7px, transparent 11px, #e7e7e7 11px), repeating-linear-gradient(180deg, #e7e7e7, #e7e7e7 7px, transparent 7px, transparent 11px, #e7e7e7 11px), repeating-linear-gradient(270deg, #e7e7e7, #e7e7e7 7px, transparent 7px, transparent 11px, #e7e7e7 11px);
+    background-size: 2px 100%, 100% 2px, 2px 100% , 100% 2px;
+    background-position: 0 0, 0 0, 100% 0, 0 100%;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    padding: 10px 20px 10px 10px;
+    display: flex;
+    align-items: center;
+}
+
+.imageFrame {
+    width: 130px;
+    height: 130px;
+    border-radius: 5px;
+    background-color: $solitude;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.infoWrapper {
+    margin-left: 50px;
+    font-size: 14px;
+    user-select: none;
+}
+
+.label {
+    margin-bottom: 5px;
+}
+
+.maxSize {
+    color: $nobel;
+}
+
+.photoContainer {
+    display: flex;
+}
+
+.photo {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.buttons {
+    margin-left: 20px;
+}
+
+.blur {
+    filter: blur(3px);
+}

@@ -1,0 +1,9 @@
+@import 'styles/colors';
+
+.container {
+    height: 70px;
+    display: grid;
+    grid-template-columns: 195px 1fr 195px;
+    border-bottom: 1px solid $mercury;
+    box-sizing: border-box;
+}
