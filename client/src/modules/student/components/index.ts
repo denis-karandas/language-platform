@@ -1,9 +1,3 @@
-export {
-    Header,
-    Sidebar,
-} from './common';
+export { Header, Sidebar } from './common';
 
-export {
-    ProfileComponent,
-    LessonsComponent,
-} from './pages';
+export { ProfileComponent, LessonsComponent } from './pages';

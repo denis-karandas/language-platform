@@ -7,17 +7,13 @@ import styles from './Profile.module.scss';
 
 const Profile = () => {
   const formMethods = useForm({
-    defaultValues
+    defaultValues,
   });
 
   const { handleSubmit } = formMethods;
 
   const onSubmit = (data) => {
     console.log(data);
-  };
-
-  const onChangePhoto = (file: File) => {
-    setValue('photo', file);
   };
 
   return (
@@ -42,7 +38,7 @@ const Profile = () => {
               <Input name="phone" />
             </Label>
             <Label text="BIRTH DATE" indent={5}>
-              <Input name="birthDate"/>
+              <Input name="birthDate" />
             </Label>
             <Label text="GENDER" indent={5}>
               <Input name="gender" />

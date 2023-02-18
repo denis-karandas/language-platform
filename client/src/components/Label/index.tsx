@@ -6,11 +6,11 @@ import { ILabelProps } from './models';
 import styles from './Label.module.scss';
 
 const Label = ({
-    text,
-    children,
-    htmlFor,
-    position = 'top',
-    indent,
+  text,
+  children,
+  htmlFor,
+  position = 'top',
+  indent,
 }: ILabelProps) => {
   const getIndentStyles = () => {
     switch (position) {
@@ -30,10 +30,12 @@ const Label = ({
 
   return (
     <div className={containerClassName}>
-        <label className={labelClassName} htmlFor={htmlFor}>{text}</label>
-        {children}
+      <label className={labelClassName} htmlFor={htmlFor}>
+        {text}
+      </label>
+      {children}
     </div>
   );
-}
+};
 
 export default Label;

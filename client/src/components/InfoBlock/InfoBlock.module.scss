@@ -1,32 +1,32 @@
 @import 'styles/colors';
 
 .container {
-    width: 100%;
-    background-color: #F6F6F6;
-    border-radius: 5px;
-    display: grid;
-    grid-template-columns: 77px 1fr;
-    grid-template-rows: 77px;
-    column-gap: 20px;
-    align-items: center;
+  width: 100%;
+  background-color: #f6f6f6;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 77px 1fr;
+  grid-template-rows: 77px;
+  column-gap: 20px;
+  align-items: center;
 }
 
 .iconWrapper {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
 }
 
 .infoWrapper {
-    color: $codGrey;
+  color: $codGrey;
 }
 
 .title {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .text {
-    font-weight: 600;
+  font-weight: 600;
 }

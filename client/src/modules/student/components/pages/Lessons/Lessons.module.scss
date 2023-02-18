@@ -1,15 +1,15 @@
 .container {
-    max-width: 750px;
+  max-width: 750px;
 }
 
 .infoBlocks {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 30px;
 }
 
 .content {
-    display: grid;
-    row-gap: 50px;
-    margin-top: 20px;
+  display: grid;
+  row-gap: 50px;
+  margin-top: 20px;
 }

@@ -7,7 +7,8 @@ import { ISidebarItem } from './models';
 import styles from './Sidebar.module.scss';
 
 const Sidebar = () => {
-  const getItemClassName = ({ isActive }) => cn(styles.item, { [styles.active]: isActive });
+  const getItemClassName = ({ isActive }) =>
+    cn(styles.item, { [styles.active]: isActive });
 
   const renderSidebarItems = () => {
     return sidebarItems.map((item: ISidebarItem) => (
@@ -17,11 +18,7 @@ const Sidebar = () => {
     ));
   };
 
-  return (
-    <div className={styles.container}>
-        {renderSidebarItems()}
-    </div>
-  )
-}
+  return <div className={styles.container}>{renderSidebarItems()}</div>;
+};
 
 export default Sidebar;

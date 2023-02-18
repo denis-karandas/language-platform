@@ -14,11 +14,7 @@ const Navigation = () => {
     ));
   };
 
-  return (
-    <div className={styles.container}>
-      {renderItems()}
-    </div>
-  )
-}
+  return <div className={styles.container}>{renderItems()}</div>;
+};
 
 export default Navigation;

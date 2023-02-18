@@ -1,7 +1,4 @@
-export {
-    Input,
-    PhotoUploader,
-} from './form';
+export { Input, PhotoUploader } from './form';
 
 export { default as PageTitle } from './PageTitle';
 export { default as PageSection } from './PageSection';

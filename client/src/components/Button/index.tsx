@@ -1,13 +1,8 @@
 import React from 'react';
-import cn from 'classnames';
 import { css } from '@emotion/css';
-import { ButtonTheme, IButtonProps } from './models';
+import { IButtonProps } from './models';
 
-const Button = ({
-  text,
-  styles,
-  onClick,
-}: IButtonProps) => {
+const Button = ({ text, styles, onClick }: IButtonProps) => {
   const containerClassName = css({
     padding: '8px 15px',
     fontSize: '14px',
@@ -20,9 +15,9 @@ const Button = ({
     userSelect: 'none',
 
     '&:hover': {
-        backgroundColor: '#4D73DA',
-        border: '1px solid #4D73DA',
-        color: '#FFFFFF',
+      backgroundColor: '#4D73DA',
+      border: '1px solid #4D73DA',
+      color: '#FFFFFF',
     },
     ...styles,
   });

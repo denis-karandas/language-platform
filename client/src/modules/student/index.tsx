@@ -19,7 +19,7 @@ const Student = () => {
         </Route>
       </Routes>
     </div>
-  )
+  );
 };
 
 export default Student;
