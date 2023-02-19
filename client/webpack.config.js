@@ -5,8 +5,6 @@ const path = require('path');
 const mode = process.argv[process.argv.indexOf('--mode') + 1] || 'development';
 const isDevMode = mode === 'development';
 
-console.log(mode);
-
 module.exports = {
   mode,
   entry: path.join(__dirname, 'src', 'index.tsx'),
