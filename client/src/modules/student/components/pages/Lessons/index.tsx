@@ -1,6 +1,6 @@
 import React from 'react';
-import { PageTitle, PageSection, InfoBlock } from 'src/components';
-import { IButtonProps } from 'src/components/Button/models';
+import { PageTitle, PageSection, InfoBlock } from 'components';
+import { IButtonProps } from 'components/Button/models';
 import { LessonsList } from './components';
 
 import styles from './Lessons.module.scss';

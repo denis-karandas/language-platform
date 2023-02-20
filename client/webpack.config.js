@@ -7,7 +7,7 @@ const isDevMode = mode === 'development';
 
 module.exports = {
   mode,
-  entry: path.join(__dirname, 'src', 'index.tsx'),
+  entry: path.resolve(__dirname, 'src', 'index.tsx'),
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: '[name].[contenthash].js',
@@ -24,10 +24,13 @@ module.exports = {
   devtool: isDevMode ? 'source-map' : undefined,
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json'],
+    modules: [
+      path.resolve(__dirname, 'src'),
+      path.resolve(__dirname, 'node_modules'),
+    ],
     alias: {
-      src: path.join(__dirname, 'src'),
-      styles: path.join(__dirname, 'src/assets/styles'),
-      student: path.join(__dirname, 'src/modules/student'),
+      '@styles': path.resolve(__dirname, 'src/assets/styles'),
+      '@student': path.resolve(__dirname, 'src/modules/student'),
     },
   },
   plugins: [
@@ -35,7 +38,7 @@ module.exports = {
       filename: '[name].[contenthash].css',
     }),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'public', 'index.html'),
+      template: path.resolve(__dirname, 'public', 'index.html'),
     }),
   ],
   module: {

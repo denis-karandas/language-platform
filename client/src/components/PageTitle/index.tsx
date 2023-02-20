@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'src/components';
+import { Button } from 'components';
 import { IPageTitleButton } from './models';
 import { buttonStyles } from './config';
 

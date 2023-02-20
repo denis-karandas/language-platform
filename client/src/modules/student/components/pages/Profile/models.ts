@@ -1,5 +1,9 @@
+export type IProfileProps = {
+  defaultValues: IProfileFormValues;
+};
+
 export interface IProfileFormValues {
-  photo: File | null;
+  photo: string | null;
   firstName: string;
   lastName: string;
   email: string;

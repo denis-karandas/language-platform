@@ -1,6 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
-import { Button } from 'src/components';
+import { Button } from 'components';
 import { OverlayTheme, IOverlayProps } from './models';
 
 import styles from './Overlay.module.scss';

@@ -1,4 +1,4 @@
-import { IButtonProps } from 'student/components/Button/models';
+import { IButtonProps } from 'components/Button/models';
 
 export enum OverlayTheme {
   Default = 'default',

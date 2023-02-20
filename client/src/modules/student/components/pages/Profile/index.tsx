@@ -1,11 +1,11 @@
 import React from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
-import { PageTitle, Label, PhotoUploader, Input } from 'src/components';
-import { defaultValues } from './config';
+import { PageTitle, Label, PhotoUploader, Input } from 'components';
+import { IProfileProps } from '@student/components/pages/Profile/models';
 
 import styles from './Profile.module.scss';
 
-const Profile = () => {
+const Profile = ({ defaultValues }: IProfileProps) => {
   const formMethods = useForm({
     defaultValues,
   });

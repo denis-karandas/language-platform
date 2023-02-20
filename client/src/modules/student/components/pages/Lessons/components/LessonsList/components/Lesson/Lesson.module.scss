@@ -1,4 +1,4 @@
-@import 'styles/colors';
+@import '@styles/colors';
 
 .container {
   border: 1px solid $mercury;
@@ -45,5 +45,6 @@
   }
   .value {
     color: $codGrey;
+    font-weight: 600;
   }
 }

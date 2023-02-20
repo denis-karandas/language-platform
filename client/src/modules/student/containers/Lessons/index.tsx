@@ -1,5 +1,5 @@
 import React from 'react';
-import { LessonsComponent } from 'student/components';
+import { LessonsComponent } from '@student/components';
 
 const Lessons = () => {
   return <LessonsComponent />;

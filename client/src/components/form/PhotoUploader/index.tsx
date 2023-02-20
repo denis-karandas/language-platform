@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import { useDropzone, FileRejection } from 'react-dropzone';
 import { useFormContext } from 'react-hook-form';
-import { Button } from 'src/components';
+import { Button } from 'components';
 import { Overlay } from './components';
 import { IPhotoUploaderProps, IPhotoUploaderError } from './models';
 import { mimeTypes, maxSize } from './config';

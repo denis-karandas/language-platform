@@ -1,8 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import './assets/styles/index.scss';
-
 const MainPage = React.lazy(() => import('./modules/main'));
 const StudentPage = React.lazy(() => import('./modules/student'));
 
