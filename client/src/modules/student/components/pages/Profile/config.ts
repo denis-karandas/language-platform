@@ -8,4 +8,5 @@ export const defaultValues: IProfileFormValues = {
   phone: '',
   birthDate: '',
   gender: '',
+  about: '',
 };

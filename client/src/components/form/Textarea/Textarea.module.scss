@@ -1,0 +1,30 @@
+@import '@styles/colors';
+@import '@styles/variables';
+
+.container {
+  min-height: 200px;
+  font-family: $font;
+  outline: none;
+  border: 1px solid $alto;
+  border-radius: 5px;
+  padding: 15px 30px 15px 15px;
+  font-size: 16px;
+  resize: none;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $mercury;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $nobel;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}

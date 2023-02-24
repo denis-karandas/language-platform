@@ -9,35 +9,35 @@
 .initialContainer {
   background-image: repeating-linear-gradient(
       0deg,
-      #e7e7e7,
-      #e7e7e7 7px,
+      $alto,
+      $alto 7px,
       transparent 7px,
       transparent 11px,
-      #e7e7e7 11px
+      $alto 11px
     ),
     repeating-linear-gradient(
       90deg,
-      #e7e7e7,
-      #e7e7e7 7px,
+      $alto,
+      $alto 7px,
       transparent 7px,
       transparent 11px,
-      #e7e7e7 11px
+      $alto 11px
     ),
     repeating-linear-gradient(
       180deg,
-      #e7e7e7,
-      #e7e7e7 7px,
+      $alto,
+      $alto 7px,
       transparent 7px,
       transparent 11px,
-      #e7e7e7 11px
+      $alto 11px
     ),
     repeating-linear-gradient(
       270deg,
-      #e7e7e7,
-      #e7e7e7 7px,
+      $alto,
+      $alto 7px,
       transparent 7px,
       transparent 11px,
-      #e7e7e7 11px
+      $alto 11px
     );
   background-size: 2px 100%, 100% 2px, 2px 100%, 100% 2px;
   background-position: 0 0, 0 0, 100% 0, 0 100%;

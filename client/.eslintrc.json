@@ -35,10 +35,6 @@
       "groups": ["builtin", "external", "internal", "parent", "sibling", "index", "object", "type"]
     }],
     "@typescript-eslint/no-explicit-any": 0,
-    "prettier/prettier": [
-      "error",
-      { "endOfLine": "auto" }
-    ],
     "prefer-const": "off",
     "react/react-in-jsx-scope": "off"
   }

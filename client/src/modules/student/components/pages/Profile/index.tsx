@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
-import { PageTitle, Label, PhotoUploader, Input } from 'components';
+import { PageTitle, Label, PhotoUploader, Input, Textarea } from 'components';
 import { IProfileProps } from '@student/components/pages/Profile/models';
 
 import styles from './Profile.module.scss';
@@ -44,6 +44,9 @@ const Profile = ({ defaultValues }: IProfileProps) => {
               <Input name="gender" />
             </Label>
           </div>
+          <Label text="ABOUT ME" indent={5}>
+            <Textarea name="about" />
+          </Label>
           <input type="submit" />
         </form>
       </FormProvider>
