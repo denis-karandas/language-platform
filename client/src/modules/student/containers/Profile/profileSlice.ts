@@ -1,11 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getReducerWrapper } from 'services/state';
+import { getStateWrapper } from 'services/StateService';
 
 export const profileSlice = createSlice({
   name: 'studentProfile',
-  initialState: getReducerWrapper(null),
+  initialState: getStateWrapper(null),
   reducers: {},
-  extraReducers: {},
 });
 
 export default profileSlice.reducer;

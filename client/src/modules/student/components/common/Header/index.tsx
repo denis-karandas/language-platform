@@ -1,14 +1,15 @@
 import React from 'react';
-import { Logo, Navigation, Student } from './components';
+import { IHeaderProps } from '@student/components/common/Header/models';
+import { Logo, Navigation, User } from './components';
 
 import styles from './Header.module.scss';
 
-const Header = () => {
+const Header = ({ user }: IHeaderProps) => {
   return (
     <div className={styles.container}>
       <Logo />
       <Navigation />
-      <Student />
+      <User {...user} />
     </div>
   );
 };

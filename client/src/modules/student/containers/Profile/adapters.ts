@@ -11,4 +11,5 @@ export const convertApiProfileValuesToComponentValues = (
   phone: item.phone,
   birthDate: item.birthDate,
   gender: item.gender,
+  about: item.about,
 });

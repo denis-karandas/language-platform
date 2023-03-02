@@ -1,4 +1,4 @@
-export interface IReducer<DataType, ErrorType = any> {
+export interface IDefaultState<DataType, ErrorType = any> {
   data: DataType;
   isFetching: boolean;
   error: ErrorType;

@@ -10,6 +10,5 @@ export interface IProfileFormValues {
   phone: string;
   birthDate: string;
   gender: string;
-
   about: string;
 }

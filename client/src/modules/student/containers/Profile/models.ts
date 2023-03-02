@@ -6,4 +6,5 @@ export interface IApiStudentProfile {
   phone: string;
   birthDate: string;
   gender: string;
+  about: string;
 }

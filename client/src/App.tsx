@@ -1,16 +1,14 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-const MainPage = React.lazy(() => import('./modules/main'));
 const StudentPage = React.lazy(() => import('./modules/student'));
 
 const App = () => {
   return (
     <div className="app">
-      <React.Suspense fallback={<div>Loading...</div>}>
+      <React.Suspense>
         <Routes>
           <Route path="/">
-            <Route index element={<MainPage />} />
             <Route path="student/*" element={<StudentPage />} />
           </Route>
         </Routes>
