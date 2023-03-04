@@ -4,20 +4,18 @@ import { ConfigService } from '@nestjs/config';
 import { InjectModel } from '@nestjs/mongoose';
 import mongoose, { Model } from 'mongoose';
 import { Response } from 'express';
-import * as bcrypt from 'bcrypt';
-import { TokenDto } from 'modules/tokens/dto/token.dto';
 import {
   UserRefreshToken,
   UserRefreshTokenDocument,
-} from 'schemas/userRefreshToken.schema';
-import { User } from 'schemas/user.schema';
-import { convertDaysToMilliseconds } from 'helpers/DateAndTimeHelper';
+} from '@schemas/userRefreshToken.schema';
+import { User } from '@schemas/user.schema';
+import { convertDaysToMilliseconds } from '@helpers/DateAndTimeHelper';
 
 @Injectable()
 export class TokensService {
   constructor(
-    private readonly configService: ConfigService,
-    private readonly jwtService: JwtService,
+    private configService: ConfigService,
+    private jwtService: JwtService,
     @InjectModel(UserRefreshToken.name)
     private readonly userRefreshTokenModel: Model<UserRefreshTokenDocument>,
   ) {}
@@ -25,7 +23,7 @@ export class TokensService {
   static ACCESS_TOKEN_NAME = 'accessToken';
   static REFRESH_TOKEN_NAME = 'refreshToken';
 
-  generateTokens<T extends string | object | Buffer>(payload: T): TokenDto {
+  generateTokens<T extends string | object | Buffer>(payload: T) {
     return {
       accessToken: this.jwtService.sign(payload, {
         secret: process.env.JWT_ACCESS_SECRET,

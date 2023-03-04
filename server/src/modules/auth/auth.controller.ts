@@ -6,61 +6,71 @@ import {
   Res,
   Get,
   UseGuards,
+  HttpStatus,
+  HttpCode,
 } from '@nestjs/common';
 import { Request, Response } from 'express';
-import { AuthService } from 'modules/auth/auth.service';
-import { RegistrationDto, LoginDto, UserDto } from 'modules/auth/dto';
-import { TokensService } from 'modules/tokens/tokens.service';
-import { User } from 'schemas/user.schema';
-import { LocalAuthGuard } from 'guards/local.guard';
-import { JwtRefreshAuthGuard } from 'guards/jwt-refresh.guard';
-import { JwtAuthGuard } from 'guards/jwt.guard';
+import { AuthService } from '@modules/auth/auth.service';
+import { RegistrationDto } from '@modules/auth/dto';
+import { TokensService } from '@modules/tokens/tokens.service';
+import { UsersService } from '@modules/users/users.service';
+import { User as UserModel } from '@schemas/user.schema';
+import { LocalAuthGuard } from '@guards/local.guard';
+import { JwtRefreshAuthGuard } from '@guards/jwt-refresh.guard';
+import { JwtAuthGuard } from '@guards/jwt.guard';
+import { User } from '@decorators/user.decorator';
 
 @Controller('api/auth')
 export class AuthController {
   constructor(
-    private readonly authService: AuthService,
-    private readonly tokensService: TokensService,
+    private authService: AuthService,
+    private usersService: UsersService,
+    private tokensService: TokensService,
   ) {}
 
   @Post('registration')
+  @HttpCode(HttpStatus.CREATED)
   async registration(
-    @Body() dto: RegistrationDto,
     @Res({ passthrough: true }) res: Response,
+    @Body() dto: RegistrationDto,
   ) {
     const response = await this.authService.registration(dto);
 
     this.tokensService.setRefreshTokenInCookie(res, response.refreshToken);
 
-    res.status(200).json({
+    return {
       user: response.user,
       accessToken: response.accessToken,
-    });
-    return;
+    };
   }
 
   @UseGuards(LocalAuthGuard)
   @Post('login')
+  @HttpCode(HttpStatus.OK)
   async login(
-    @Body() dto: LoginDto,
     @Req() req: Request,
     @Res({ passthrough: true }) res: Response,
+    @User() user: UserModel,
   ) {
-    const response = await this.authService.login(req.user as User);
+    const response = await this.authService.login(user);
 
     this.tokensService.setRefreshTokenInCookie(res, response.refreshToken);
 
-    res.status(200).json({
+    return {
       user: response.user,
       accessToken: response.accessToken,
-    });
-    return;
+    };
   }
 
   @UseGuards(JwtAuthGuard)
   @Post('logout')
-  async logout(@Req() req: Request, @Res({ passthrough: true }) res: Response) {
-    const response = await this.authService.logout(req.user as User);
+  @HttpCode(HttpStatus.OK)
+  async logout(
+    @Req() req: Request,
+    @Res({ passthrough: true }) res: Response,
+    @User() user: UserModel,
+  ) {
+    await this.authService.logout(user);
 
     res.clearCookie(TokensService.REFRESH_TOKEN_NAME);
 
@@ -69,23 +79,26 @@ export class AuthController {
 
   @UseGuards(JwtRefreshAuthGuard)
   @Get('refresh')
+  @HttpCode(HttpStatus.OK)
   async refresh(
     @Req() req: Request,
     @Res({ passthrough: true }) res: Response,
+    @User() user: UserModel,
   ) {
-    const response = await this.authService.login(req.user as User);
+    const response = await this.authService.login(user);
 
     this.tokensService.setRefreshTokenInCookie(res, response.refreshToken);
 
-    res.status(200).json({
+    return {
       user: response.user,
       accessToken: response.accessToken,
-    });
+    };
   }
 
   @UseGuards(JwtAuthGuard)
   @Get('user')
-  async loginByAccessToken(@Req() req: Request) {
-    return new UserDto(req.user as User);
+  @HttpCode(HttpStatus.OK)
+  async loginByAccessToken(@Req() req: Request, @User() user: UserModel) {
+    return this.usersService.getResponseModel(user);
   }
 }

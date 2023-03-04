@@ -18,10 +18,12 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
-      "modules/*": ["src/modules/*"],
-      "schemas/*": ["src/schemas/*"],
-      "guards/*": ["src/guards/*"],
-      "helpers/*": ["src/helpers/*"],
+      "@modules/*": ["src/modules/*"],
+      "@schemas/*": ["src/schemas/*"],
+      "@guards/*": ["src/guards/*"],
+      "@decorators/*": ["src/decorators/*"],
+      "@filters/*": ["src/filters/*"],
+      "@helpers/*": ["src/helpers/*"],
     }
   }
 }

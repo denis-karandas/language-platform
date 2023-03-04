@@ -3,18 +3,19 @@ import {
   Controller,
   Delete,
   Get,
+  NotFoundException,
   Param,
   Post,
   Put,
   UseGuards,
 } from '@nestjs/common';
-import { UsersService } from 'modules/users/users.service';
-import { UserDto } from 'modules/users/user.dto';
-import { JwtAuthGuard } from 'guards/jwt.guard';
+import { UsersService } from '@modules/users/users.service';
+import { UserDto } from '@modules/users/dto';
+import { JwtAuthGuard } from '@guards/jwt.guard';
 
 @Controller('api/user')
 export class UsersController {
-  constructor(private readonly usersService: UsersService) {}
+  constructor(private usersService: UsersService) {}
 
   @UseGuards(JwtAuthGuard)
   @Get()
@@ -25,19 +26,23 @@ export class UsersController {
   @UseGuards(JwtAuthGuard)
   @Get(':id')
   async findOne(@Param('id') id: string) {
-    return this.usersService.findOne(id);
+    const user = await this.usersService.findOne(id);
+
+    if (!user) {
+      throw new NotFoundException('User ID not found');
+    }
   }
 
   @UseGuards(JwtAuthGuard)
   @Post()
-  async create(@Body() createUserDto: UserDto) {
-    return this.usersService.create(createUserDto);
+  async create(@Body() dto: UserDto) {
+    return this.usersService.create(dto);
   }
 
   @UseGuards(JwtAuthGuard)
   @Put(':id')
-  async update(@Param('id') id: string, @Body() updateUserDto: UserDto) {
-    return this.usersService.update(id, updateUserDto);
+  async update(@Param('id') id: string, @Body() dto: UserDto) {
+    return this.usersService.update(id, dto);
   }
 
   @UseGuards(JwtAuthGuard)

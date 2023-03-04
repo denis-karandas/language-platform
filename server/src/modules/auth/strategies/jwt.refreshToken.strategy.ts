@@ -1,9 +1,14 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import {
+  HttpException,
+  HttpStatus,
+  Injectable,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { Request } from 'express';
-import { UsersService } from 'modules/users/users.service';
-import { TokensService } from 'modules/tokens/tokens.service';
+import { UsersService } from '@modules/users/users.service';
+import { TokensService } from '@modules/tokens/tokens.service';
 
 @Injectable()
 export class JwtRefreshTokenStrategy extends PassportStrategy(
@@ -11,12 +16,12 @@ export class JwtRefreshTokenStrategy extends PassportStrategy(
   'jwt-refresh',
 ) {
   constructor(
-    private readonly usersService: UsersService,
-    private readonly tokenService: TokensService,
+    private usersService: UsersService,
+    private tokenService: TokensService,
   ) {
     super({
       jwtFromRequest: ExtractJwt.fromExtractors([
-        (req: Request) => req?.cookies?.refreshToken || null,
+        (req: Request) => req.cookies?.refreshToken || null,
       ]),
       ignoreExpiration: false,
       secretOrKey: process.env.JWT_REFRESH_SECRET,
@@ -26,11 +31,11 @@ export class JwtRefreshTokenStrategy extends PassportStrategy(
 
   async validate(req: Request, payload: any) {
     if (!payload?.id) {
-      throw new UnauthorizedException();
+      throw new HttpException('Invalid token', HttpStatus.BAD_REQUEST);
     }
     const user = await this.usersService.findOne(payload.id);
     if (!user) {
-      throw new UnauthorizedException();
+      throw new HttpException('User not found', HttpStatus.NOT_FOUND);
     }
     const refreshToken = req.cookies.refreshToken;
     const userRefreshTokenModel = await this.tokenService.validateRefreshToken(
